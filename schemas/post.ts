@@ -31,14 +31,48 @@ export default defineType({
       name: 'author',
       title: 'Author of the post',
       type: 'reference',
-      to: [{type: 'author'}],
+      to: [{type: 'person'}],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      title: 'Body',
-      name: 'body',
-      type: 'portableText',
-      validation: (Rule) => Rule.required(),
+      name: 'featuredImage',
+      title: 'Featured Image',
+      type: 'image',
+      options: {hotspot: true},
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alternative text',
+          type: 'string',
+        },
+        {
+          name: 'caption',
+          title: 'Caption',
+          type: 'string',
+        },
+      ],
+    }),
+    defineField({
+      title: 'Content',
+      name: 'content',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [
+            {title: 'Normal', value: 'normal'},
+            {title: 'Heading', value: 'h2'},
+            {title: 'Quote', value: 'blockquote'},
+          ],
+          marks: {
+            decorators: [
+              {title: 'Strong', value: 'strong'},
+              {title: 'Emphasis', value: 'em'},
+              {title: 'Strike', value: 'strike-through'},
+            ],
+          },
+        },
+      ],
     }),
   ],
 })
