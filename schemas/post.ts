@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {SlSocialYoutube} from 'react-icons/sl'
 
 export default defineType({
   name: 'post',
@@ -72,6 +73,7 @@ export default defineType({
             ],
           },
         },
+        {type: 'embedYoutube', icon: SlSocialYoutube},
       ],
     }),
   ],
