@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {SlSocialYoutube} from 'react-icons/sl'
+import {FaFacebookSquare} from 'react-icons/fa'
 
 export default defineType({
   name: 'post',
@@ -74,6 +75,7 @@ export default defineType({
           },
         },
         {type: 'embedYoutube', icon: SlSocialYoutube},
+        {type: 'facebookEvent', icon: FaFacebookSquare},
       ],
     }),
   ],
